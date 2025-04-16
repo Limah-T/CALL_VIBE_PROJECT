@@ -1,0 +1,12 @@
+{% extends 'home/base.html' %}
+{% block title %}Email Verification Failed{% endblock %}
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="text-center">
+        <h1 class="text-danger">Verification Failed</h1>
+        <p>Sorry, your email verification link is invalid or has expired.</p>
+        <p>If you believe this is a mistake, you can request a new verification email below.</p>
+        <a href="{% url 'accounts:resend_verification' %}" class="btn btn-secondary mt-3">Resend Verification Email</a>
+    </div>
+</div>
+{% endblock %}

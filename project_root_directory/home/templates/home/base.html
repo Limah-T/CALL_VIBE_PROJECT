@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Home{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body>
+    {% block header %}
+    <!--Header-->
+    <header>
+        <nav class="navbar navbar-expand-lg fixed-top" style="background-color: rgb(128, 213, 128); z-index: 1030;">
+            <div class="container-fluid">
+              <h3 class="navbar-brand">Call Vibe <img src="{% static 'images/call_image.png'%}" alt="call image"></h3>
+              
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="{% url 'home:home' %}" style="font-size: 22px;">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about:about'%}" style="font-size: 22px;">About</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: rgb(151, 6, 40); font-size: 22px;">
+                      Services
+                    </a>
+                    <ul class="dropdown-menu mt-2">
+                      <li><a class="dropdown-item" href="#">Call Rates</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#">Supported Countries</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="{% url 'transactions:purchase-airtime'%}">Buy Call Credit</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#">Call History</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#">Account Settings</a></li>
+                    </ul>
+                  </li>
+                  {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'accounts:profile' user.id %}" style="font-size: 22px; color: white; font-weight: bold;">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'accounts:logout' %}" style="font-size: 22px;">Logout</a>
+                        </li>
+                        
+                  {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'accounts:login'%}" style="font-size: 22px; color: green; font-weight: bold;">Login</a>
+                        </li>
+                  {% endif %}
+                  
+                </ul>
+                
+                <form class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Search country for rate" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit" style="color: white; font-weight: 600;">Search</button>
+                </form>
+              </div>
+            </div>
+          </nav>
+    </header>
+    {% endblock %}
+    <!--Main -->
+    {% block content %}
+        <main style="padding-top: 70px;">
+            <!-- Hero Section -->
+            <section class="hero-section text-white text-center py-5" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1610383233087-bb32c43c88b2?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;">
+                <div class="container">
+                <h1 class="display-4 fw-bold">Stay Connected Across Africa</h1>
+                <p class="lead">Crystal-clear calls, affordable rates. Connect to any African country in seconds.</p>
+                <a href="#" class="btn btn-light btn-lg mt-3">Get Started</a>
+                </div>
+            </section>
+            
+            <!-- Features Section -->
+            <section class="py-5 bg-light">
+                <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-4 mb-4">
+                    <img src="{% static 'images/family.png'%}" class="img-fluid rounded mb-3" alt="Reliable Calls">
+                    <h4 class="fw-bold">Reliable Voice</h4>
+                    <p>Enjoy high-quality calls with zero interruptions and no dropouts.</p>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                    <img src="{% static 'images/man_and_woman.png'%}" class="img-fluid rounded mb-3" alt="Affordable Pricing">
+                    <h4 class="fw-bold">Affordable Pricing</h4>
+                    <p>Transparent rates—no hidden fees. Get more talk time for less.</p>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                    <img src="{% static 'images/lady.png'%}" class="img-fluid rounded mb-3" alt="Wide Coverage">
+                    <h4 class="fw-bold">Pan-African Reach</h4>
+                    <p>Talk to friends and family across Africa with a single tap.</p>
+                    </div>
+                </div>
+                </div>
+            </section>
+            
+            <!-- Testimonials -->
+            <section class="py-5 text-center" style="background-color: #e8f5e9;">
+                <div class="container">
+                <h2 class="mb-4 fw-bold">What Our Users Say</h2>
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                    <blockquote class="blockquote">
+                        <p>"Call Vibe helps me call my mum in Ghana every day without breaking the bank!"</p>
+                        <footer class="blockquote-footer">Sarah, Nigeria</footer>
+                    </blockquote>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                    <blockquote class="blockquote">
+                        <p>"So much better than buying airtime. I just tap and talk."</p>
+                        <footer class="blockquote-footer">Daniel, South Africa</footer>
+                    </blockquote>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                    <blockquote class="blockquote">
+                        <p>"I use it to call clients across Africa. It’s crystal clear and cheap!"</p>
+                        <footer class="blockquote-footer">Amina, Kenya</footer>
+                    </blockquote>
+                    </div>
+                </div>
+                </div>
+            </section>
+            <!-- CTA Section -->
+            <section class="cta-section text-center py-5" style="background-color: #343a40; color: white;">
+                <div class="container">
+                    <h2 class="fw-bold">Join thousands making smarter calls</h2>
+                    <p class="lead">Register now and start connecting across Africa instantly.</p>
+                    <a href="{% url 'accounts:register' %}" class="btn btn-light btn-lg">Create Account</a>
+                </div>
+            </section>
+        </main>    
+    {% endblock %}
+    {% block footer%}
+        <!-- Footer -->
+        <footer class="text-center text-white py-4" style="background-color: #212529;">
+            <p class="mb-0">&copy; 2025 Call Vibe. All rights reserved. | Made for Africa</p>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    {% endblock %}
+</body>
+</html>

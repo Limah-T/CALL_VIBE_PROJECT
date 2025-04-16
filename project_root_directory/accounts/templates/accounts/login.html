@@ -1,0 +1,37 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<section style="padding-top: 52px;">
+    <div class="container-fluid d-flex justify-content-center align-items-center" style="min-height: 80vh; padding: 0;">
+        <div class="row justify-content-center w-100">
+            <div class="col-lg-6 col-md-8 col-sm-12">
+                <div class="card shadow-lg" style="border-radius: 10px;">
+                    <div class="card-body p-4">
+                        <form action="{% url 'accounts:login'%}" method="POST">
+                            {% csrf_token %}
+                            {% for field in form %}
+                            <div class="fieldWrapper">
+                                <span>{{ field.errors }}</span>
+                                <p style="font-size: 20px;">{{ field.label_tag }}</p> 
+                                <p>{{ field }}</p>
+                            </div>
+                            {% endfor %}
+                            <!-- Submit Button -->
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-success" style="width: 100%; background-color: rgb(128, 213, 128); border-color: rgb(128, 213, 128); font-size: 20px;">Login</button>
+                            </div>
+                            
+                            <!-- Create Account and Forgot Password Links -->
+                            <div class="d-flex justify-content-between mt-3" style="font-size: 14px;">
+                                <a href="{% url 'accounts:register'%}" class="text-muted" style="font-size: medium; font-size: 20px;">Create an Account</a>
+                                <a href="#" style="text-decoration: none; font-size: 20px; color: rgb(255, 90, 90);">Forgot password? 🤔</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

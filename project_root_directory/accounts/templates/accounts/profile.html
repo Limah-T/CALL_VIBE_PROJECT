@@ -1,0 +1,40 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8 col-sm-12">
+      <div class="card shadow-lg" style="border-radius: 10px;">
+        <div class="card-body p-4">
+          <h3 class="text-center" style="color: rgb(213, 166, 128); font-weight: 700; font-style: italic;">{{user.username}}</h3>
+          
+          <div class="text-center">
+            <img src="{% static 'images/CEO2.jpeg' %}" alt="Profile Picture" class="img-thumbnail" style="width: 150px; height: 160px; border-radius: 50px;">
+          </div>
+
+          <!-- Display User's Profile Information -->
+          <div class="mt-4">
+            <h5>First Name: <span style="color: #555;">{{ user.first_name }}</span></h5>
+            <h5>Last Name: <span style="color: #555;">{{ user.last_name }}</span></h5>
+            <h5>Email: <span style="color: #555;">{{ user.email }}</span></h5>
+            <h5>Phone Number: <span style="color: #555;">{{ user.phonenumber }}</span></h5>
+            <h5>Country: <span style="color: #555;">{{ user.country }}</span></h5>
+            <h5>Gender: <span style="color: #555;">{{ user.gender }}</span></h5>
+          </div>
+
+          <div class="text-center mt-4">
+            <a href="" class="btn btn-success" style="background-color: rgb(128, 213, 128); border-color: rgb(128, 213, 128); font-size: 18px;">Edit Profile</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Profile Management Links -->
+      <div class="text-center mt-3">
+        <p>Want to change your password? <a href="" style="color: rgb(255, 90, 90); font-weight: 600;">Change Password</a></p>
+        <p>Want to delete your account? <a href="" style="color: rgb(255, 90, 90); font-weight: 600;">Delete Account</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+.navbar-brand {
+    color: whitesmoke;
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.container-fluid img {
+    width: 25px;
+    height: 25px;
+}
+
+.nav-item a {
+    color: azure;
+}
+
+.navbar .dropdown-item {
+    color: black;
+}
+
+.sticky-top {
+    position: sticky !important;
+    top: 0;
+    z-index: 1030;
+}

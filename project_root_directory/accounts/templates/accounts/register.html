@@ -1,0 +1,34 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{% block title %}Register{% endblock %}
+{% block content %}
+    <div class="container mt-5" style="padding-top: 60px;">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8 col-sm-12">
+                <div class="card shadow-lg" style="border-radius: 10px;">
+                    <div class="card-body p-4">
+                        
+                        <form action="" method="POST">
+                            {% csrf_token %}
+                           {% for field in form %} 
+                            <div class="fieldWrapper">
+                                <span>{{ field.errors }}</span>
+                                <p style="font-size: 20px;">{{ field.label_tag }}</p> 
+                                <p>{{ field }}</p>
+                            </div>
+                            {% endfor %}
+
+                            <!-- Submit Button -->
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-success" style="width: 100%; background-color: rgb(128, 213, 128); border-color: rgb(128, 213, 128);font-size: 20px;">Create Account</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="text-center mt-3">
+                    <p>Already have an account? <a href="{% url 'accounts:login'%}" style="color: rgb(255, 90, 90); font-weight: 600;">Login here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

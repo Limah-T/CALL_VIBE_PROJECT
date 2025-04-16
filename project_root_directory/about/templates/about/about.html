@@ -1,0 +1,135 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{% block title %}About Us{% endblock %}
+{% block content %}
+
+    <!-- Hero Section -->
+    <section style="background-color: goldenrod; height: 100%; padding-top: 75px;">
+        <div class="container d-flex justify-content-center align-items-center">
+        <p class="lead text-white fw-bold" style="font-size: 1.5rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); text-align: center;">
+            Connecting Africa and beyond with seamless, affordable voice calls.
+        </p>
+        </div>
+    </section>
+
+    <!-- Our Mission Section -->
+    <section class="py-2" style="background-color: #f8f9fa;">
+    <div class="container">
+        <div class="row align-items-center">
+        <!-- Image Column -->
+        <div class="col-md-6 mb-4 mb-md-0">
+            <img src="{% static 'images/mission.jpg' %}" alt="Our Mission" class="img-fluid rounded shadow">
+        </div>
+        <!-- Text Column -->
+        <div class="col-md-6">
+            <h2 class="mb-3" style="color: #003049;">Our Mission</h2>
+            <p style="font-size: 1.1rem; line-height: 1.6;">
+            Our mission is to empower individuals and businesses across Africa by providing a reliable, affordable, and secure communication platform. 
+            With a blend of technology, diverse cultural insights, and innovative solutions, we ensure that every call connects people – bridging distances and strengthening bonds.
+            </p>
+        </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="py-5" style="background-color: #ffffff;">
+    <div class="container">
+        <div class="row align-items-center flex-column-reverse flex-md-row">
+        <!-- Text Column -->
+        <div class="col-md-6">
+            <h2 class="mb-3" style="color: #2d6a4f;">Our Story</h2>
+            <p style="font-size: 1.1rem; line-height: 1.6;">
+            Founded by a team of passionate professionals, Call Vibe was born from the desire to revolutionize cross-border communication in Africa. 
+            Our journey began with addressing the high costs of traditional international calling and evolved into crafting a platform that embraces the diversity and vibrancy of the continent.
+            </p>
+        </div>
+        <!-- Image Column -->
+        <div class="col-md-6 mb-4 mb-md-0">
+            <img src="{% static 'images/our_story.png' %}" alt="Our Story" class="img-fluid rounded shadow">
+        </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- Our Services Section -->
+    <section class="py-5" style="background: linear-gradient(135deg, #ffbe0b, #ff006e);">
+    <div class="container text-white">
+        <div class="text-center mb-5">
+        <h2 class="fw-bold">Our Services</h2>
+        <p class="lead">From affordable calling plans to global connectivity solutions.</p>
+        </div>
+        <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm border-0 rounded-lg">
+            <img src="{% static 'images/service1.jpg' %}" class="card-img-top" alt="Global Calling">
+            <div class="card-body">
+                <h5 class="card-title">Global Calling</h5>
+                <p class="card-text">Make voice calls to any African country and beyond, all at the best rates in the market.</p>
+            </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm border-0 rounded-lg">
+            <img src="{% static 'images/service2.jpg' %}" class="card-img-top" alt="Secure Connections">
+            <div class="card-body">
+                <h5 class="card-title">Secure Connections</h5>
+                <p class="card-text">Enjoy state-of-the-art security with every call to keep your conversations private and protected.</p>
+            </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm border-0 rounded-lg">
+            <img src="{% static 'images/service3.jpg' %}" class="card-img-top" alt="Affordable Pricing">
+            <div class="card-body">
+                <h5 class="card-title">Affordable Pricing</h5>
+                <p class="card-text">Our competitive pricing plans ensure you stay connected without the financial strain of traditional calling.</p>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </section>
+    <!-- Team Section -->
+    <div class="row text-center">
+        <h2 class="text-center text-success mb-4 py-5">Meet Our Team</h2>
+        <!-- Remove the outer col-md-4 wrapper and use columns for each team member -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm border-0 rounded-lg">
+                <img src="{% static 'images/CEO_image.jpeg' %}" class="card-img-top" alt="Team Member 1" style="width: 200px; height: 250px; margin: 0 auto;">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Halimah Temitope</h5>
+                    <p class="card-text text-muted">Founder & CEO</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm border-0 rounded-lg">
+                <img src="{% static 'images/team2.png' %}" class="card-img-top" alt="Team Member 2" style="width: 200px; height: 250px; margin: 0 auto;">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Micheal Johnson</h5>
+                    <p class="card-text text-muted">Head of Operations</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm border-0 rounded-lg">
+                <img src="{% static 'images/team3.png' %}" class="card-img-top" alt="Team Member 3" style="width: 200px; height: 250px; margin: 0 auto;">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Lizzy Fortune</h5>
+                    <p class="card-text text-muted">Chief Marketing Officer</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call to Action -->
+    <section class="py-5" style="background-color: #212529;">
+    <div class="container text-center">
+        <h2 class="text-white fw-bold">Ready to Connect?</h2>
+        <p class="lead text-white-50">Join Call Vibe today and experience cross-border communication like never before.</p>
+        <a href="{% url 'accounts:register' %}" class="btn btn-lg" style="background-color: #ff5733; color: white; border: none; border-radius: 25px;">Get Started</a>
+    </div>
+    </section>
+
+{% endblock %}

@@ -1,6 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 
+GENDER = [
+    ('male', 'Male'),
+    ('female', 'Female')
+]
+
 class CustomUserManager(BaseUserManager):
     def create_user(self, first_name, last_name, email, username, country, phonenumber, password=None, **extra_fields):
         if not first_name:
@@ -38,6 +43,7 @@ class CustomUser(AbstractUser):
     username = models.CharField(unique=True, max_length=100, null=False, blank=False)
     country = models.CharField(max_length=100, null=False, blank=False)
     phonenumber = models.CharField(max_length=15, unique=True, null=False, blank=False)
+    gender = models.CharField(max_length=6, choices=GENDER, null=False, blank=False)
     date_joined = models.DateTimeField(auto_now_add=True)
     last_login = models.DateTimeField(auto_now=True)
     is_active = models.BooleanField(default=True)
@@ -45,15 +51,6 @@ class CustomUser(AbstractUser):
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = ["first_name", "last_name", "username", "country", "phonenumber"]
     objects = CustomUserManager()
-
-    # def save(self, *args, **kwargs):
-    #     if self.first_name:
-    #         self.first_name = self.first_name.title()
-    #     if self.last_name:
-    #         self.last_name = self.last_name.title()
-    #     if self.country:
-    #         self.country = self.country.title()
-    #     super().save(CustomUser, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.get_full_name()

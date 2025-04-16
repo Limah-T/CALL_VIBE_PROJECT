@@ -1,0 +1,24 @@
+{% extends 'home/base.html' %}
+{% load static %}
+
+{% block title %}Email Verification{% endblock %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="card shadow-sm p-4" style="max-width: 600px; width: 100%;">
+        <div class="text-center mb-4">
+            <img src="{% static 'images/verify_email.png' %}" alt="Verify Email" class="img-fluid mt-3" style="max-height: 150px;">
+        </div>
+        <h2 class="text-center mb-3">Hello, <span class="text-primary">{{ username }}</span>!</h2>
+        <p class="text-center">
+            Please check your inbox at <strong>{{ email }}</strong> and click the activation link we sent you to complete your registration.
+        </p>
+        <div class="alert alert-warning text-center mt-3">
+            <strong>Note:</strong> If you don’t see the email in your inbox, check your spam or junk folder.
+        </div>
+        <div class="text-center mt-4">
+            <a href="{% url 'home:home' %}" class="btn btn-outline-primary">Back to Home</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
